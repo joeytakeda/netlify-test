@@ -8,6 +8,20 @@
     <!--This stylesheet runs on itself to make 1000 pages-->
     
     <xsl:template name="createPages">
+        <xsl:result-document href="products/index.html">
+            <html>
+                <head><title>TEST <xsl:value-of select="."/></title></head>
+                <body>
+                    <ul>
+                        <xsl:for-each select="1 to 500">
+                            <li>
+                                <a href="doc_{.}.html">DOCUMENT <xsl:value-of select="."/></a>
+                            </li>
+                        </xsl:for-each>
+                    </ul>
+                </body>
+            </html>
+        </xsl:result-document>
         <xsl:for-each select="1 to 500">
             <xsl:message>Creating <xsl:value-of select="."/></xsl:message>
             <xsl:result-document href="products/doc_{.}.html" method="xml">
