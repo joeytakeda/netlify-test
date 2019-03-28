@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="buildAll" default="site">
+    <description>This build creates a very simple website based off of a single TEI file and produces 1000 HTML pages to test functionality
+    in netlify.</description>
+    
+    <target name="site">
+        <java classpath="lib/saxon9he.jar" classname="net.sf.saxon.Transform" failonerror="true" >
+            <arg value="-xsl:xsl/site.xsl"/>
+            <arg value="-it:createPages"/>
+            <arg value="--suppressXsltNamespaceCheck:on"/>
+        </java>
+    </target>
+    
+</project>
